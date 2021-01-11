@@ -2,6 +2,8 @@ from tkinter import *
 from tkinter.ttk import *
 from sqlite3 import *
 from tkinter import messagebox
+import home
+
 
 class Loginwindow(Tk):
     def __init__(self, *args, **kwargs):
@@ -42,14 +44,13 @@ class Loginwindow(Tk):
         l2 = Label(login_frame, text='Password : ', style='Login.TLabel')
         l2.grid(row=1, column=0)
 
-        self.password_entry = Entry(login_frame, font=('Arial', 12))
+        self.password_entry = Entry(login_frame, show="*", font=('Arial', 12))
         self.password_entry.grid(row=1, column=1, pady=10)
 
         s.configure('Login.TButton', font=("Arial", 12))
 
         login_button = Button(login_frame, text='Login', style='Login.TButton', command = self.login_button_click)
         login_button.grid(row=2, column=1, pady=10)
-
 
     def login_button_click(self):
         con = connect('mycontacts.db')
@@ -58,7 +59,8 @@ class Loginwindow(Tk):
         Username = ? and Password = ?''', (self.username_entry.get(), self.password_entry.get()))
         row = cur.fetchone()
         if row is not None:
-            messagebox.showinfo('Success Message', 'Logged in successfully')
+            self.destroy()
+            home.Homewindow()
         else:
             messagebox.showerror('Error Message', 'Invalid Username or Password')
 
@@ -66,6 +68,6 @@ class Loginwindow(Tk):
 
 
 
-
-lw = Loginwindow()
-lw.mainloop()
+if __name__=='__main__':
+    lw = Loginwindow()
+    lw.mainloop()
