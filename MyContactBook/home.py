@@ -4,6 +4,7 @@ from sqlite3 import *
 from tkinter import messagebox
 import login
 import changepassword
+import managecontacts
 
 
 class Homewindow(Tk):
@@ -44,6 +45,8 @@ class Homewindow(Tk):
 
         self.content_frame = Frame(self, style='Content.TFrame')
         self.content_frame.pack(fill=BOTH, expand=TRUE)
+
+        managecontacts.Managecontactsframe(self.content_frame)
 
     def logout_button_click(self):
         self.destroy()
