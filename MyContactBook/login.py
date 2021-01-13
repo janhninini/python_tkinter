@@ -52,7 +52,7 @@ class Loginwindow(Tk):
         login_button = Button(login_frame, text='Login', style='Login.TButton', command = self.login_button_click)
         login_button.grid(row=2, column=1, pady=10)
 
-    def login_button_click(self):
+    def login_button_click(self, event=NONE):
         con = connect('mycontacts.db')
         cur = con.cursor()
         cur.execute('''select * from Login where
