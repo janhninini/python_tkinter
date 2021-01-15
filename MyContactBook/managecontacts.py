@@ -183,8 +183,14 @@ class Managecontactsframe(Frame):
         self.create_view_all_contacts_frame()
 
     def delete_button_click(self):
-        messagebox.askquestion('Confirmation Message', )
-
+        if messagebox.askquestion('Confirmation Message',
+                                  'Are you sure you want to delete this contact?') == 'yes':
+            self.cur.execute("delete from Contact where EmailId = ?",
+                             (self.old_email_id,))
+            self.con.commit()
+            messagebox.showinfo('Success Message', 'Contact details deleted successfully')
+        self.update_delete_contacts_frame.destroy()
+        self.create_view_all_contacts_frame()
 
 
 

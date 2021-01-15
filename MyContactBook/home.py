@@ -53,7 +53,14 @@ class Homewindow(Tk):
         login.Loginwindow()
 
     def change_password_click(self):
+        for inner_frame in self.content_frame.winfo_children():
+            inner_frame.destroy()
+
         changepassword.Changepasswordframe(self.content_frame)
 
+    def manage_contacts_button_click(self):
+        for inner_frame in self.content_frame.winfo_children():
+            inner_frame.destroy()
+        managecontacts.Managecontactsframe(self.content_frame)
 
 

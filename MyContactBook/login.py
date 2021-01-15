@@ -35,14 +35,14 @@ class Loginwindow(Tk):
 
         s.configure('Login.TLabel', background='white', font=('Arial', 12))
 
-        l1 = Label(login_frame, text ='Username : ', style='Login.TLabel')
-        l1.grid(row = 0, column = 0)
+        username_label = Label(login_frame, text ='Username : ', style='Login.TLabel')
+        username_label.grid(row = 0, column = 0)
 
         self.username_entry = Entry(login_frame, font=('Arial', 12))
         self.username_entry.grid(row=0, column=1)
 
-        l2 = Label(login_frame, text='Password : ', style='Login.TLabel')
-        l2.grid(row=1, column=0)
+        password_label = Label(login_frame, text='Password : ', style='Login.TLabel')
+        password_label.grid(row=1, column=0)
 
         self.password_entry = Entry(login_frame, show="*", font=('Arial', 12))
         self.password_entry.grid(row=1, column=1, pady=10)
@@ -51,6 +51,7 @@ class Loginwindow(Tk):
 
         login_button = Button(login_frame, text='Login', style='Login.TButton', command = self.login_button_click)
         login_button.grid(row=2, column=1, pady=10)
+        login_button.bind('<Return>', self.login_button_click)
 
     def login_button_click(self, event=NONE):
         con = connect('mycontacts.db')
