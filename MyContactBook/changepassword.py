@@ -13,21 +13,21 @@ class Changepasswordframe(Frame):
         s = Style()
         s.configure('TFrame', background='white')
 
-        s.configure('TLabel', background='white', font=('Ariel',12))
+        s.configure('TLabel', background='white', font=('Ariel', 12))
 
         old_password_label = Label(self, text='Old Password :')
         old_password_label.grid(row=0, column=0, sticky=W)
 
         self.old_password_entry = Entry(self, font=('Arial', 12), width=15)
-        self.old_password_entry.grid(row=0, column=1)
+        self.old_password_entry.grid(row=0, column=1, pady= 10)
 
-        new_password_label = Label(self, text='New Password')
+        new_password_label = Label(self, text='New Password :')
         new_password_label.grid(row=1, column=0, sticky=W)
 
         self.new_password_entry = Entry(self, font=('Arial', 12), width=15)
         self.new_password_entry.grid(row=1, column=1, pady=10)
 
-        confirm_password_label = Label(self, text='Confirm Password', )
+        confirm_password_label = Label(self, text='Confirm Password :', )
         confirm_password_label.grid(row=2, column=0, sticky=W)
 
         self.confirm_password_entry = Entry(self, font=('Arial', 12), width=15, show="*")
@@ -51,6 +51,6 @@ class Changepasswordframe(Frame):
                 messagebox.showinfo('Success Message', 'Password Changed Successfully')
 
             else:
-                messagebox.showerror('Errow Message', "New Password and Confirm Password Do Not Match")
+                messagebox.showerror('Error Message', "New Password and Confirm Password Do Not Match")
         else:
-            messagebox.showerror('Errow Message', "Incorrect Old Password")
+            messagebox.showerror('Error Message', "Incorrect Old Password")
