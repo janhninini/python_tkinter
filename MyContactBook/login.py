@@ -10,15 +10,15 @@ class Loginwindow(Tk):
         Tk.__init__(self, *args, **kwargs)
 
         self.title("Login")
-        self.geometry("500x400")
+        self.geometry("600x400")
 
         s = Style()
-        s.configure('Header.TFrame', background="pink")
+        s.configure('Header.TFrame', background="blue")
 
         header_frame = Frame(self, style='Header.TFrame')
         header_frame.pack(fill=X)
 
-        s.configure('Header.TLabel', background='pink', foreground='white', font=('Arial', 25))
+        s.configure('Header.TLabel', background='blue', foreground='white', font=('Arial', 25))
 
         header_label = Label(header_frame, text="My Contact Book", style='Header.TLabel')
         header_label.pack(pady=10)

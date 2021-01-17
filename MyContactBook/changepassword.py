@@ -24,7 +24,7 @@ class Changepasswordframe(Frame):
         new_password_label = Label(self, text='New Password :')
         new_password_label.grid(row=1, column=0, sticky=W)
 
-        self.new_password_entry = Entry(self, font=('Arial', 12), width=15)
+        self.new_password_entry = Entry(self, font=('Arial', 12), width=15, show='*')
         self.new_password_entry.grid(row=1, column=1, pady=10)
 
         confirm_password_label = Label(self, text='Confirm Password :', )
